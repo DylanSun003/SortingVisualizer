@@ -1,5 +1,6 @@
 package com.example.sortingproject;
 
+import javafx.animation.SequentialTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -21,10 +22,10 @@ import java.util.ResourceBundle;
 
 import static com.example.sortingproject.Node.GenerateRandomNodes;
 
-abstract public class AlgorithmController implements Initializable{
-    public static final int X_GAP = 10;
+abstract public class AlgorithmController extends SortAnimation implements Initializable {
+    public static final int X_GAP = 3;
     public static int NUM_OF_NODES = 20;
-    public static int SPEED = 50;
+    public static int SPEED = 5;
 
     public Node nodes[];
     @FXML
@@ -34,6 +35,8 @@ abstract public class AlgorithmController implements Initializable{
     @FXML
     public Button pause;
     @FXML
+    public Button reset;
+    @FXML
     public Label speedLabel;
     @FXML
     public Slider speedSlider;
@@ -41,6 +44,9 @@ abstract public class AlgorithmController implements Initializable{
     public Slider nodeNumSlider;
     @FXML
     public Label nodeNumLabel;
+
+    final static int PANE_WIDTH = 700;
+    final static int PANE_HEIGHT = 430;
 
     abstract public void startSort(ActionEvent event);
     abstract public void stopSort(ActionEvent event);
@@ -51,10 +57,12 @@ abstract public class AlgorithmController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        st = new SequentialTransition();
         generator();
+        reset.setVisible(false);
+        pause.setDisable(true);
         start.setOnAction(this::startSort);
         pause.setOnAction(this::stopSort);
 
@@ -62,7 +70,6 @@ abstract public class AlgorithmController implements Initializable{
         nodeNumLabel.setText("Node#: " + NUM_OF_NODES);
         speedSlider.setValue(SPEED);
         nodeNumSlider.setValue(NUM_OF_NODES);
-
 
         speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -79,9 +86,37 @@ abstract public class AlgorithmController implements Initializable{
                 generator();
             }
         });
+        st.setOnFinished(this::stFinishEvent);
+    }
+    public void stFinishEvent(ActionEvent event) {
+        reset.setVisible(true);
+        start.setVisible(false);
+        pause.setVisible(false);
+        reset.setOnAction(this::resetEvent);
+    }
+    public void resetEvent(ActionEvent event) {
+        reset.setVisible(false);
+        generator();
+        start.setVisible(true);
+        pause.setVisible(true);
+        start.setDisable(false);
+        pause.setDisable(true);
+        speedSlider.setDisable(false);
+        nodeNumSlider.setDisable(false);
+    }
+    public void whenPlaying() {
+        start.setDisable(true);
+        pause.setDisable(false);
+        speedSlider.setDisable(true);
+        nodeNumSlider.setDisable(true);
+    }
+    public void whenPause() {
+        start.setDisable(false);
+        pause.setDisable(true);
+        speedSlider.setDisable(true);
+        nodeNumSlider.setDisable(true);
     }
     public void generator() {
-        pause.setDisable(true);
         pane.getChildren().clear();
         nodes = GenerateRandomNodes(NUM_OF_NODES);
         pane.getChildren().addAll(Arrays.asList(nodes));
