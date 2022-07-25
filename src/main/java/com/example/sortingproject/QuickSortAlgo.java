@@ -1,58 +1,48 @@
 package com.example.sortingproject;
-
-import javafx.animation.Transition;
 import javafx.event.ActionEvent;
 import javafx.scene.paint.Color;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static com.example.sortingproject.Node.swap;
-
 public class QuickSortAlgo extends AlgorithmController {
     private static final Color PIVOT_COLOR = Color.CRIMSON;
-    private List<Transition> transitions;
+
     @Override
     public void startSort(ActionEvent event) {
-        start.setDisable(true);
-        pause.setDisable(false);
-        System.out.println("Quick sort!");
-        for (Node node : nodes) {
-            System.out.println(node.getValue());
-        }
+        whenPlaying();
         quickSort(0, nodes.length - 1);
-        for (Node node : nodes) {
-            System.out.println(node.getValue());
-        }
+        colorAllNodes(nodes);
+        st.play();
+        st.getChildren().clear();
     }
     @Override
     public void stopSort(ActionEvent event) {
-        start.setDisable(false);
-        pause.setDisable(true);
-        System.out.println("stop! Quick sort!");
+        whenPause();
+        st.pause();
     }
-
     public void quickSort(int low, int high) {
         if (low < high) {
             int pivotIdx = partition(low, high);
+            colorSingleNode(nodes[pivotIdx], NODE_ORI_COLOR);
             quickSort(low, pivotIdx - 1);
+            colorNodeFromIdx(nodes, low, pivotIdx - 1);
             quickSort(pivotIdx + 1, high);
+            colorNodeFromIdx(nodes,pivotIdx + 1, high);
         }
     }
     // TODO: add randomly pick pivot feature later instead to just pick the last index as pivot
     public int partition(int low, int high) {
-        int curPivot = high;
+        int curPivotIdx = high;
+        colorSingleNode(nodes[curPivotIdx], PIVOT_COLOR);
         high--;
         while (low <= high) {
-            if (nodes[low].getValue() > nodes[curPivot].getValue()) {
-                if (nodes[high].getValue() <= nodes[curPivot].getValue()) {
+            if (nodes[low].getValue() > nodes[curPivotIdx].getValue()) {
+                if (nodes[high].getValue() <= nodes[curPivotIdx].getValue()) {
                     swap(low, high, nodes);
                 }
                 else high--;
             }
             else low++;
         }
-        swap(low, curPivot, nodes);
+        swap(low, curPivotIdx, nodes);
         return low;
     }
 

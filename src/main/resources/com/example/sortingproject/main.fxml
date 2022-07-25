@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -13,9 +12,8 @@
             <Font name="Al Bayan Plain" size="19.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#switchToQuickSortScene" prefHeight="53.0" prefWidth="134.0" text="Quick Sort"></Button>
-<!--      <ComboBox fx:id="choiceAlg" layoutX="14.0" layoutY="261.0" onAction="#setChoicePage" prefWidth="150.0" />-->
-      <Button layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToMergeSortScene" prefHeight="53.0" prefWidth="134.0" text="Merge Sort" />
-      <Button layoutX="14.0" layoutY="68.0" mnemonicParsing="false" onAction="#switchToBubbleSortScene" prefHeight="53.0" prefWidth="134.0" text="Bubble Sort" />
+      <Button fx:id="QuickSort" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#switchToQuickSortScene" prefHeight="53.0" prefWidth="134.0" text="Quick Sort" />
+      <Button fx:id="MergeSort" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToMergeSortScene" prefHeight="53.0" prefWidth="134.0" text="Merge Sort" />
+      <Button fx:id="BubbleSort" layoutX="14.0" layoutY="68.0" mnemonicParsing="false" onAction="#switchToBubbleSortScene" prefHeight="53.0" prefWidth="134.0" text="Bubble Sort" />
    </children>
 </AnchorPane>
