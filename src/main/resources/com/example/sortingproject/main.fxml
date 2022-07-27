@@ -12,8 +12,10 @@
             <Font name="Al Bayan Plain" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="QuickSort" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#switchToQuickSortScene" prefHeight="53.0" prefWidth="134.0" text="Quick Sort" />
-      <Button fx:id="MergeSort" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToMergeSortScene" prefHeight="53.0" prefWidth="134.0" text="Merge Sort" />
+      <Button fx:id="QuickSort" layoutX="14.0" layoutY="280.0" mnemonicParsing="false" onAction="#switchToQuickSortScene" prefHeight="53.0" prefWidth="134.0" text="Quick Sort" />
+      <Button fx:id="InsertionSort" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToInsertionSortScene" prefHeight="53.0" prefWidth="134.0" text="Insertion Sort" />
       <Button fx:id="BubbleSort" layoutX="14.0" layoutY="68.0" mnemonicParsing="false" onAction="#switchToBubbleSortScene" prefHeight="53.0" prefWidth="134.0" text="Bubble Sort" />
+      <Button fx:id="MergeSort" layoutX="14.0" layoutY="227.0" mnemonicParsing="false" onAction="#switchToMergeSortScene" prefHeight="53.0" prefWidth="134.0" text="Merge Sort" />
+      <Button fx:id="SelectionSort" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#switchToSelectionSortScene" prefHeight="53.0" prefWidth="134.0" text="Selection Sort" />
    </children>
 </AnchorPane>
