@@ -29,7 +29,7 @@ abstract public class AlgorithmController extends SortAnimation implements Initi
 
     public Node nodes[];
     @FXML
-    private Pane pane;
+    public Pane pane;
     @FXML
     public Button start;
     @FXML

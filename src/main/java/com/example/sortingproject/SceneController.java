@@ -58,6 +58,20 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToInsertionSortScene(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("InsertionSort.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToSelectionSortScene(ActionEvent event) throws IOException {
+        fxmlLoader = new FXMLLoader(getClass().getResource("SelectionSort.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.show();
+    }
 }
 //    public void switchToSortStage(ActionEvent event) throws IOException {
 //        fxmlLoader = new FXMLLoader(getClass().getResource("sortPage.fxml"));

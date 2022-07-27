@@ -14,14 +14,14 @@
          </font>
       </Button>
       <Label alignment="CENTER" layoutX="174.0" layoutY="19.0" prefHeight="30.0" prefWidth="80.0" text="Bubble Sort" textOverrun="CENTER_ELLIPSIS" />
-      <AnchorPane fx:id="pane" layoutY="70.0" prefHeight="430.0" prefWidth="700.0" />
+      <AnchorPane fx:id="pane" layoutY="70.0" maxHeight="430.0" maxWidth="700.0" prefHeight="430.0" prefWidth="700.0" />
       <Slider fx:id="speedSlider" layoutX="397.0" layoutY="40.0" max="10.0" min="1.0" prefHeight="16.0" prefWidth="103.0" />
       <Label fx:id="speedLabel" layoutX="403.0" layoutY="13.0" text="Speed">
          <font>
             <Font name="Al Bayan Plain" size="15.0" />
          </font>
       </Label>
-      <Slider fx:id="nodeNumSlider" layoutX="512.0" layoutY="40.0" max="60.0" min="2.0" prefHeight="16.0" prefWidth="103.0" />
+      <Slider fx:id="nodeNumSlider" layoutX="512.0" layoutY="40.0" min="2.0" prefHeight="16.0" prefWidth="103.0" />
       <Label fx:id="nodeNumLabel" layoutX="518.0" layoutY="13.0" text="Node #">
          <font>
             <Font name="Al Bayan Plain" size="15.0" />
