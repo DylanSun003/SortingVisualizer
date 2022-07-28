@@ -29,7 +29,7 @@ abstract public class AlgorithmController extends SortAnimation implements Initi
 
     public Node nodes[];
     @FXML
-    public Pane pane;
+    private Pane pane;
     @FXML
     public Button start;
     @FXML
@@ -49,14 +49,17 @@ abstract public class AlgorithmController extends SortAnimation implements Initi
     final static int PANE_HEIGHT = 430;
 
     abstract public void startSort(ActionEvent event);
+
     abstract public void stopSort(ActionEvent event);
+
     public void switchToMainScene(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("main.fxml"));
-        Stage stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.show();
     }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         st = new SequentialTransition();
@@ -70,7 +73,6 @@ abstract public class AlgorithmController extends SortAnimation implements Initi
         nodeNumLabel.setText("Node#: " + NUM_OF_NODES);
         speedSlider.setValue(SPEED);
         nodeNumSlider.setValue(NUM_OF_NODES);
-
         speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
@@ -88,12 +90,14 @@ abstract public class AlgorithmController extends SortAnimation implements Initi
         });
         st.setOnFinished(this::stFinishEvent);
     }
+
     public void stFinishEvent(ActionEvent event) {
         reset.setVisible(true);
         start.setVisible(false);
         pause.setVisible(false);
         reset.setOnAction(this::resetEvent);
     }
+
     public void resetEvent(ActionEvent event) {
         reset.setVisible(false);
         generator();
@@ -104,18 +108,21 @@ abstract public class AlgorithmController extends SortAnimation implements Initi
         speedSlider.setDisable(false);
         nodeNumSlider.setDisable(false);
     }
+
     public void whenPlaying() {
         start.setDisable(true);
         pause.setDisable(false);
         speedSlider.setDisable(true);
         nodeNumSlider.setDisable(true);
     }
+
     public void whenPause() {
         start.setDisable(false);
         pause.setDisable(true);
         speedSlider.setDisable(true);
         nodeNumSlider.setDisable(true);
     }
+
     public void generator() {
         pane.getChildren().clear();
         nodes = GenerateRandomNodes(NUM_OF_NODES);

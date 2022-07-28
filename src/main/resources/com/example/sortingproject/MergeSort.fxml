@@ -21,7 +21,7 @@
             <Font name="Al Bayan Plain" size="15.0" />
          </font>
       </Label>
-      <Slider fx:id="nodeNumSlider" layoutX="512.0" layoutY="40.0" max="60.0" min="2.0" prefHeight="16.0" prefWidth="103.0" />
+      <Slider fx:id="nodeNumSlider" layoutX="512.0" layoutY="40.0" min="2.0" prefHeight="16.0" prefWidth="103.0" />
       <Label fx:id="nodeNumLabel" layoutX="518.0" layoutY="13.0" text="Node #">
          <font>
             <Font name="Al Bayan Plain" size="15.0" />

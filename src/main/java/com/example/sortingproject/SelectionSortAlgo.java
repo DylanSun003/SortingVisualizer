@@ -2,9 +2,10 @@ package com.example.sortingproject;
 
 import javafx.event.ActionEvent;
 import javafx.scene.paint.Color;
+
 public class SelectionSortAlgo extends AlgorithmController {
-    private static final Color CURRENT_MIN_NODE= Color.CRIMSON;
-    private static final Color CURRENT_READ_NODE= Color.CHOCOLATE;
+    private static final Color CURRENT_MIN_NODE = Color.CRIMSON;
+
     @Override
     public void startSort(ActionEvent event) {
         whenPlaying();
@@ -13,13 +14,14 @@ public class SelectionSortAlgo extends AlgorithmController {
         st.play();
         st.getChildren().clear();
     }
+
     @Override
     public void stopSort(ActionEvent event) {
         whenPause();
         st.pause();
     }
 
-    public void SelectionSort() {
+    private void SelectionSort() {
         for (int i = 0; i < nodes.length; i++) {
             int curSortIdx = i;
             int curMinValIdx = i;
@@ -32,7 +34,7 @@ public class SelectionSortAlgo extends AlgorithmController {
                 }
             }
             swap(curSortIdx, curMinValIdx, nodes);
-            colorNodeFromIdx(nodes,0, curSortIdx, NODE_SORTED_COLOR);
+            colorNodeFromIdx(nodes, 0, curSortIdx, NODE_SORTED_COLOR);
         }
     }
 }

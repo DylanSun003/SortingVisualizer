@@ -6,21 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class SceneController extends Application {
     private Stage stage;
     private Scene scene;
     private FXMLLoader fxmlLoader;
-
-//    @FXML
-//    private Button BubbleSort;
-//    @FXML
-//    private Button MergeSort;
-//    @FXML
-//    private Button QuickSort;
-//
-//    public static String AlgoChoice;
 
     public static void main(String[] args) {
         launch();
@@ -58,6 +50,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
     public void switchToInsertionSortScene(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("InsertionSort.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -65,6 +58,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
     public void switchToSelectionSortScene(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(getClass().getResource("SelectionSort.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -73,25 +67,3 @@ public class SceneController extends Application {
         stage.show();
     }
 }
-//    public void switchToSortStage(ActionEvent event) throws IOException {
-//        fxmlLoader = new FXMLLoader(getClass().getResource("sortPage.fxml"));
-//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        scene = new Scene(fxmlLoader.load());
-//        stage.setScene(scene);
-//        stage.show();
-//    }
-//
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        BubbleSort.setOnAction(event -> {
-//            AlgoChoice = "Bubble Sort";
-//
-//        });
-//        MergeSort.setOnAction(event -> {
-//            AlgoChoice = "Merge Sort";
-//        });
-//        QuickSort.setOnAction(event -> {
-//            AlgoChoice = "Quick Sort";
-//        });
-//    }
-//}

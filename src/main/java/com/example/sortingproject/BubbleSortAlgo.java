@@ -14,13 +14,14 @@ public class BubbleSortAlgo extends AlgorithmController {
         st.play();
         st.getChildren().clear();
     }
+
     @Override
     public void stopSort(ActionEvent event) {
         whenPause();
         st.pause();
     }
 
-    public void bubbleSort() {
+    private void bubbleSort() {
         int lastIdx = nodes.length - 1;
         while (lastIdx >= 0) {
             int left = 0, right = left + 1;
